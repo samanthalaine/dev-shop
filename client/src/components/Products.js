@@ -8,7 +8,7 @@ import useStyles from './ProductStyles'
 //     {id: 2, name: 'Mouse', description: 'Bluetooth mouse', price: "$15", image: 'https://images.unsplash.com/photo-1605773527852-c546a8584ea3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bW91c2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60'}
 // ]
 
-function Products({products}) {
+function Products({products, onAddToCart}) {
     const classes = useStyles()
 
     return (
@@ -17,7 +17,7 @@ function Products({products}) {
             <Grid container justify="center" spacing ={4}>
                 {products.map ((product)=> (
                     <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
-                        <Product product={product}/>
+                        <Product product={product} onAddToCart={onAddToCart}/>
                     </Grid>
                 ))}
             </Grid>
