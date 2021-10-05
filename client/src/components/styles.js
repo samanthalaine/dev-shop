@@ -4,6 +4,7 @@ export default makeStyles(()=>({
     root: {
         // maxWidth: 345, original width style
         maxWidth: '100%',
+        maxHeight: '100%'
       },
       media: {
         height: 0,
@@ -16,5 +17,6 @@ export default makeStyles(()=>({
       cardContent: {
         display: 'flex',
         justifyContent: 'space-between',
+        height: '20%'
       },
 }))
