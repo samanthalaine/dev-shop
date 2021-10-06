@@ -1,14 +1,18 @@
 import React from 'react'
 import {Container, Typography, Button, Grid} from '@material-ui/core'
 import useStyles from './CartStyles'
+import CartItem from './CartItem'
+import {Link} from 'react-router-dom'
 
 
-function Cart({cart}) {
+function Cart({cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart}) {
     // const isEmpty = !cart.line_items.length
     const classes = useStyles()
 
     const EmptyCart = () => (
-        <Typography variant="subtitle1">Your cart is empty! Start Adding Items.</Typography>
+        <Typography variant="subtitle1">Your cart is empty. 
+            <Link to="/" className={classes.link}> Start Adding Items!</Link>
+        </Typography>
     )
 
     const FilledCart = () => (
@@ -16,7 +20,7 @@ function Cart({cart}) {
         <Grid container spacing={3}>
             {cart.line_items.map((item)=>(
                 <Grid item xs={12} sm={4} key={item.id}>
-                    <div>{item.name}</div>
+                    <CartItem item={item} onUpdateCartQty={handleUpdateCartQty} onRemoveFromCart={handleRemoveFromCart}/>
                 </Grid>
                 
             ))}
@@ -24,7 +28,7 @@ function Cart({cart}) {
         <div className={classes.cardDetails}>
             <Typography variant='h5'>Subtotal: {cart.subtotal.formatted_with_symbol}</Typography>
             <div>
-                <Button className={classes.emptyButton} size='large' type='button' variant='contained' color='secondary'>Clear Cart</Button>
+                <Button className={classes.emptyButton} size='large' type='button' variant='contained' color='secondary' onClick={handleEmptyCart}>Clear Cart</Button>
                 <Button className={classes.checkoutButton} size='large' type='button' variant='contained' color='primary'>Checkout</Button>
             </div>
 
@@ -36,7 +40,7 @@ function Cart({cart}) {
 
     return (
         <div className={classes.toolbar}>
-            <Typography className={classes.title} variant='h4'>
+            <Typography className={classes.title} variant='h5' gutterBottom>
                 Your Cart
             </Typography>
             {!cart.line_items.length ? <EmptyCart/> : <FilledCart/>}
