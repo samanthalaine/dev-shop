@@ -11,16 +11,16 @@ function Navbar({totalItems}) {
 
     return (
         <>
-            <AppBar position="fixed" className={classes.appBar} color='inherit'>
+            <AppBar style={{ background: "#00ACC1" }} position="fixed" className={classes.appBar} color='inherit'>
                 <Toolbar>
-                    <Typography component={Link} to="/"  variant='h6' className={classes.title} color='inherit'>
-                        <img src='https://media.discordapp.net/attachments/887887430475186176/894670982525112320/image0.png' alt='dev shop' height='25px' className={classes.image}/>
+                    <Typography component={Link} to="/"  variant='h6' className={classes.title} style={{ color: "#FAFAFA" }}>
+                        <img src='https://media.discordapp.net/attachments/887887430475186176/895153870706196500/image0.png' alt='dev shop' height='25px' className={classes.image}/>
                         DevShop
                     </Typography>
                         <div className={classes.grow}/>
                         <div className={classes.button}>
                             
-                            <IconButton component={Link} to="/cart" aria-label='Show cart items' color='inherit'>
+                            <IconButton component={Link} to="/cart" aria-label='Show cart items' style={{ color: "#FAFAFA" }}>
                                 <Badge badgeContent={totalItems} color='secondary'>
                                     <ShoppingCart/>
                                 </Badge>

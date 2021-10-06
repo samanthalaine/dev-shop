@@ -16,7 +16,7 @@ function Cart({cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart}
     )
 
     const FilledCart = () => (
-        <>
+        <div>
         <Grid container spacing={3}>
             {cart.line_items.map((item)=>(
                 <Grid item xs={12} sm={4} key={item.id}>
@@ -26,21 +26,21 @@ function Cart({cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart}
             ))}
         </Grid>
         <div className={classes.cardDetails}>
-            <Typography variant='h5'>Subtotal: {cart.subtotal.formatted_with_symbol}</Typography>
+            <Typography variant='h5' style={{ color: "#880E4F" }}>Subtotal: {cart.subtotal.formatted_with_symbol}</Typography>
             <div>
                 <Button className={classes.emptyButton} size='large' type='button' variant='contained' color='secondary' onClick={handleEmptyCart}>Clear Cart</Button>
                 <Button className={classes.checkoutButton} size='large' type='button' variant='contained' color='primary'>Checkout</Button>
             </div>
 
         </div>
-        </>
+        </div>
     )
 
     if(!cart.line_items) return 'Loading cart...'
 
     return (
         <div className={classes.toolbar}>
-            <Typography className={classes.title} variant='h5' gutterBottom>
+            <Typography className={classes.title} variant='h5' gutterBottom >
                 Your Cart
             </Typography>
             {!cart.line_items.length ? <EmptyCart/> : <FilledCart/>}
