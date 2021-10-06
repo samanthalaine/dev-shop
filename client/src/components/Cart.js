@@ -29,7 +29,7 @@ function Cart({cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart}
             <Typography variant='h5' style={{ color: "#880E4F" }}>Subtotal: {cart.subtotal.formatted_with_symbol}</Typography>
             <div>
                 <Button className={classes.emptyButton} size='large' type='button' variant='contained' color='secondary' onClick={handleEmptyCart}>Clear Cart</Button>
-                <Button className={classes.checkoutButton} size='large' type='button' variant='contained' color='primary'>Checkout</Button>
+                <Button className={classes.checkoutButton} size='large' type='button' variant='contained' style={{ backgroundColor: "#00ACC1", color: '#FAFAFA' }}>Checkout</Button>
             </div>
 
         </div>

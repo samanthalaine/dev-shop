@@ -6,6 +6,7 @@ import {
   CardActions,
   CardContent,
   CardMedia,
+  ButtonGroup
 } from "@material-ui/core";
 
 import useStyles from "./styles"
@@ -23,9 +24,13 @@ function CartItem({ item, onUpdateCartQty, onRemoveFromCart }) {
       </CardContent>
       <CardActions className={classes.cardActions}>
         <div className={classes.buttons}>
+        <ButtonGroup aria-label="outlined primary button group">
+        <Typography style={{ color: "#00ACC1" }}>{item.quantity}</Typography>
           <Button type="button" size="small" onClick={()=> onUpdateCartQty(item.id, item.quantity - 1)}>-</Button>
-          <Typography>{item.quantity}</Typography>
+          
           <Button type="button" size="small" onClick={()=> onUpdateCartQty(item.id, item.quantity + 1)}>+</Button>
+          </ButtonGroup>
+          
         </div>
         <Button variant="contained" type="button" color="secondary" onClick={()=>onRemoveFromCart(item.id)}>Remove</Button>
       </CardActions>
