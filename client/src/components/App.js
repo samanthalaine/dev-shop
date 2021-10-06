@@ -5,6 +5,8 @@ import {commerce} from './commerce'
 import {useState, useEffect} from 'react'
 import Cart from './Cart'
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Login from './Login'
+import SignUp from './Signup'
 
 
 
