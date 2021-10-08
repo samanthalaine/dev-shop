@@ -60,7 +60,7 @@ const Checkout = ({ cart, onCaptureCheckout, order, error }) => {
   if (error) {
     Confirmation = () => (
       <>
-        <Typography variant="h5">Error: {error}</Typography>
+        <Typography variant="h5">Error: Your purchase could not be completed</Typography>
         <br />
         <Button component={Link} variant="outlined" type="button" to="/">Back to home</Button>
       </>

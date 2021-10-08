@@ -50,18 +50,18 @@ const AddressForm = ({ checkoutToken, test }) => {
 
   return (
     <>
-      <Typography variant="h6" gutterBottom>Shipping address</Typography>
+      <Typography variant="h6" gutterBottom>Shipping Info</Typography>
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit((data) => test({ ...data, shippingCountry, shippingSubdivision, shippingOption }))}>
           <Grid container spacing={3}>
             <FormInput required name="firstName" label="First name" />
             <FormInput required name="lastName" label="Last name" />
-            <FormInput  name="address1" label="Address line 1" />
+            {/* <FormInput  name="address1" label="Address line 1" />
             <FormInput required name="email" label="Email" />
             <FormInput  name="city" label="City" />
-            <FormInput  name="zip" label="Zip / Postal code" />
+            <FormInput  name="zip" label="Zip / Postal code" /> */}
             <Grid item xs={12} sm={6}>
-              <InputLabel>Shipping Country</InputLabel>
+              {/* <InputLabel>Shipping Info</InputLabel>
               <Select value={shippingCountry} fullWidth onChange={(e) => setShippingCountry(e.target.value)}>
                 {Object.entries(shippingCountries).map(([code, name]) => ({ id: code, label: name })).map((item) => (
                   <MenuItem key={item.id} value={item.id}>
@@ -88,13 +88,13 @@ const AddressForm = ({ checkoutToken, test }) => {
                     {item.label}
                   </MenuItem>
                 ))}
-              </Select>
+              </Select> */}
             </Grid>
           </Grid>
           <br />
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <Button component={Link} variant="outlined" to="/cart">Back to Cart</Button>
-            <Button type="submit" variant="contained" color="primary">Next</Button>
+            <Button type="submit" variant="contained" style={{ backgroundColor: "#00ACC1", color: '#FAFAFA' }}>Next</Button>
           </div>
         </form>
       </FormProvider>
