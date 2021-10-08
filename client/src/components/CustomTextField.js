@@ -8,17 +8,12 @@ function FormInput({ name, label, required }) {
 
   return (
     <Grid item xs={12} sm={6}>
-      <Controller
-        as={TextField}
+        <Controller render={({ field }) => <TextField {...field} label={label} fullWidth required/>}  
+        control={control} 
         name={name}
-        control={control}
-        label={label}
-        fullWidth
-        required={required}
-        error={isError}
-      />
+        />
     </Grid>
-  );
+);
 }
 
 export default FormInput;

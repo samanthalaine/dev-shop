@@ -98,9 +98,9 @@ function App() {
             handleEmptyCart={handleEmptyCart}
           />
         </Route>
-        {/* <Route path="/checkout" exact>
+        <Route path="/checkout" exact>
           <Checkout cart={cart} order={order} onCaptureCheckout={handleCaptureCheckout} error={errorMessage} />
-        </Route> */}
+        </Route>
       </Switch>
     </div>
   </Router>
