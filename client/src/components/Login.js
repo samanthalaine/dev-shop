@@ -91,7 +91,7 @@ const Login = () => {
 
     const userDetails = {
         email: "samantha@devshop.com",
-        password: "12345"
+        password: "devshop123"
     }
 
 
@@ -109,7 +109,7 @@ const Login = () => {
             })
         }
         else{
-            setError("Details do not match")
+            setError("Username or password is incorrect")
             console.log("Details do not match")
         }
     }
