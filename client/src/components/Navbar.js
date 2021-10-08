@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 
 
 
+
 function Navbar({totalItems}) {
     const classes = useStyles()
 
@@ -19,6 +20,9 @@ function Navbar({totalItems}) {
                     </Typography>
                         <div className={classes.grow}/>
                         <div className={classes.button}>
+                        <IconButton component={Link} to="/login" aria-label='login' style={{ color: "#FAFAFA" }}>
+                              <h6>Login</h6>
+                            </IconButton>
                             
                             <IconButton component={Link} to="/cart" aria-label='Show cart items' style={{ color: "#FAFAFA" }}>
                                 <Badge badgeContent={totalItems} color='secondary'>

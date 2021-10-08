@@ -7,6 +7,7 @@ import Cart from './Cart'
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Login from './Login'
 import SignUp from './Signup'
+import Checkout from './Checkout'
 
 
 
@@ -14,6 +15,10 @@ import SignUp from './Signup'
 function App() {
   const [products, setProducts] = useState([])
   const [cart, setCart] = useState({})
+
+  const [order, setOrder] = useState({});
+  const [errorMessage, setErrorMessage] = useState('');
+
 
   const fetchProducts = async () => {
     const { data } = await commerce.products.list()
@@ -47,6 +52,25 @@ function App() {
     setCart(cart)
   }
 
+  const refreshCart = async () => {
+    const newCart = await commerce.cart.refresh();
+
+    setCart(newCart);
+  };
+
+  const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
+    try {
+      const incomingOrder = await commerce.checkout.capture(checkoutTokenId, newOrder);
+
+      setOrder(incomingOrder);
+
+      refreshCart();
+    } catch (error) {
+      setErrorMessage(error.data.error.message);
+    }
+  };
+
+
   useEffect(()=>{
     fetchProducts()
     fetchCart()
@@ -62,6 +86,9 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Products products={products} onAddToCart={handleAddToCart}  />
+        </Route>
+        <Route exact path="/login">
+          <Login  />
         </Route>
         <Route exact path="/cart">
           <Cart 
