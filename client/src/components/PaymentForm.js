@@ -52,7 +52,7 @@ const PaymentForm = ({ checkoutToken, nextStep, backStep, shippingData, onCaptur
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <Button variant="outlined" onClick={backStep}>Back</Button>
               <Button type="submit" variant="contained" disabled={!stripe} style={{ backgroundColor: "#00ACC1", color: '#FAFAFA' }}>
-                Pay 
+                Pay {checkoutToken.live.subtotal.formatted_with_symbol}
               </Button>
             </div>
           </form>
