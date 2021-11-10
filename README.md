@@ -1,9 +1,8 @@
-# Project Template: React/Rails API
+# DevShop
 
 ## Description
 
-This project is scaffolded so that you can build a React frontend and Rails
-backend together, and easily deploy them to Heroku.
+This project is an e-commerce website for developers to buy accessories and other products.
 
 ## Requirements
 
